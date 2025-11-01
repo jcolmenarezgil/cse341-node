@@ -1,10 +1,10 @@
 // express web server 
 var express = require('express');
 var app = express();
+const routerLesso1 = require('./controller/lesson1') 
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+app.get('/', routerLesso1.mainRoute);
+app.get('/info', routerLesso1.infoRoute);
 
 const port = 3000;
 
