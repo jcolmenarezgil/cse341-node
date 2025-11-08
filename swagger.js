@@ -1,7 +1,4 @@
-import swaggerAutogen from 'swagger-autogen';
-
-const outputFile = './swagger_output.json';
-const endpointsFiles = ['./routes/index.js'];
+const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
     info: {
@@ -11,5 +8,8 @@ const doc = {
     host: 'https://cse341-node-w6zy.onrender.com',
     schemes: ['https']
 }
+
+const outputFile = './swagger_output.json';
+const endpointsFiles = ['./routes/index.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);

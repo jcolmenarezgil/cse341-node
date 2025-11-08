@@ -2,13 +2,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./database');
 const app = express();
-import swaggerUI from 'swagger-ui-express';
-import swaggerFile from './swagger_output.json';
 
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow-Methods',
+        'Origin, X-Requested-With, Content-Type, Accept, Z-Key'   
+    );
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    next();
+})
 app.use('/', require('./routes'));
 
 mongodb.initDb((err) => {
