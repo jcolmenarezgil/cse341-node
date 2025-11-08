@@ -1,9 +1,11 @@
-var express = require('express');
-var mongodb = require('./database');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongodb = require('./database');
+const app = express();
 
 const port = process.env.PORT || 3000;
 
+app.use(bodyParser.json());
 app.use('/', require('./routes'));
 
 mongodb.initDb((err) => {

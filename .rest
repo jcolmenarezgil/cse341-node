@@ -1,8 +1,23 @@
-@hostname = https://cse341-w01-contacts-7o27.onrender.com
+// HOSTNAME
+@hostname = https://cse341-node-w6zy.onrender.com
 
+### Get all users
 GET {{hostname}}/users
 Accept: application/json
 
-###
+### Get user by id
 GET {{hostname}}/users/6906b906905e60ce80915c9a
 Accept: application/json
+
+### Create new user
+POST {{hostname}}/ HTTP/1.1
+Content-Type: application/json
+{
+  "firstName": "Stuart",
+  "lastName": "Bloom",
+  "email": "stuart@Bloom.com",
+  "favoriteColor": "Purple",
+  "birthday": "1981-07-12"
+}
+
+### Update user
