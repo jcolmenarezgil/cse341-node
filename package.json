@@ -1,20 +1,21 @@
 {
-  "name": "cse341-w01",
+  "name": "cse341-w01-contacts",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "start-prod": "node server.js",
-    "git-update": "git add . && git commit -m \"update\" && git push"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "http": "^0.0.1-security",
+    "mongodb": "^6.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

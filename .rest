@@ -1,0 +1,8 @@
+@hostname = https://cse341-w01-contacts-7o27.onrender.com
+
+GET {{hostname}}/users
+Accept: application/json
+
+###
+GET {{hostname}}/users/6906b906905e60ce80915c9a
+Accept: application/json
