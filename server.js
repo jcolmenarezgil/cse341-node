@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.use('/', require('./routes'));
-app.use('./api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
+app.get('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
 mongodb.initDb((err) => {
     if (err) {
