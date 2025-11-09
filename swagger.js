@@ -5,11 +5,11 @@ const doc = {
         title: 'Contacs API',
         description: 'Contacts API for CSE341',
     },
-    host: 'https://cse341-node-w6zy.onrender.com',
-    schemes: ['https']
-}
+    host: 'localhost:3000',
+    schemes: ['https', 'host']
+};
 
-const outputFile = './swagger_output.json';
+const outputFile = './swagger.json';
 const endpointsFiles = ['./routes/index.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
