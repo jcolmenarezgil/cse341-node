@@ -16,11 +16,11 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "http": "^0.0.1-security",
-    "mongodb": "^6.20.0"
+    "mongodb": "^6.20.0",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10",
-    "swagger-autogen": "^2.23.7",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-autogen": "^2.23.7"
   }
 }
