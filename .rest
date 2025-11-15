@@ -34,4 +34,4 @@ Content-Type: application/json
 }
 
 ### Delete user
-DELETE {{hostname}}/users/690fc6c631ff286fd2b4ae4d HTTP/1.1
+DELETE {{hostname}}/users/690fc74c31ff286fd2b4ae4e HTTP/1.1
