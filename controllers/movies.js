@@ -2,21 +2,34 @@ const mongodb = require('../database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllMovies = async (req, res) => {
-    const result = await mongodb.getDatabase().collection('movies').find();
-    result.toArray().then((movies) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(movies);
-    });
+    mongodb
+        .getDatabase()
+        .collection('movies')
+        .find()
+        .toArray((err, list) => {
+            if (err) {
+                res.status(400).json({ message: err });
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(movies);
+        });
 };
 
 const getMovieById = async (req, res) => {
     const movieId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().collection('movies').find({ _id: movieId });
-    result.toArray().then((movies) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(movies[0]);
-    });
+    mongodb
+        .getDatabase()
+        .collection('movies')
+        .find({ _id: movieId })
+        .toArray((err, list) => {
+            if (err) {
+                res.status(400).json({ message: err });
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(movies);
+        });
 };
+
 
 const createMovie = async (req, res) => {
     const movie = {
