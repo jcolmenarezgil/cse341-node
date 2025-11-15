@@ -1,0 +1,228 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CRUD API",
+    "description": "Crud API for CSE341",
+    "version": "1.0.0"
+  },
+  "host": "https://cse341-node-6l61.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "https",
+    "host"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "original_title": {
+                  "example": "any"
+                },
+                "year": {
+                  "example": "any"
+                },
+                "director": {
+                  "example": "any"
+                },
+                "writers": {
+                  "example": "any"
+                },
+                "producers": {
+                  "example": "any"
+                },
+                "cinematographer": {
+                  "example": "any"
+                },
+                "editor": {
+                  "example": "any"
+                },
+                "music_composer": {
+                  "example": "any"
+                },
+                "release_date": {
+                  "example": "any"
+                },
+                "running_time": {
+                  "example": "any"
+                },
+                "budget": {
+                  "example": "any"
+                },
+                "rating": {
+                  "example": "any"
+                },
+                "synopsis": {
+                  "example": "any"
+                },
+                "wiki_link": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/movies/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "original_title": {
+                  "example": "any"
+                },
+                "year": {
+                  "example": "any"
+                },
+                "director": {
+                  "example": "any"
+                },
+                "writers": {
+                  "example": "any"
+                },
+                "producers": {
+                  "example": "any"
+                },
+                "cinematographer": {
+                  "example": "any"
+                },
+                "editor": {
+                  "example": "any"
+                },
+                "music_composer": {
+                  "example": "any"
+                },
+                "release_date": {
+                  "example": "any"
+                },
+                "running_time": {
+                  "example": "any"
+                },
+                "budget": {
+                  "example": "any"
+                },
+                "rating": {
+                  "example": "any"
+                },
+                "synopsis": {
+                  "example": "any"
+                },
+                "wiki_link": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/movies/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
