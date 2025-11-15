@@ -1,9 +1,12 @@
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser');
 const mongodb = require('./database');
-const port = process.env.PORT || 3000;
+const app = express();
 
+// app port
+const port = process.env.PORT || 3000;
 // app routes
+app.use(bodyParser.json());
 app.use('/', require('./routes'));
 
 // mondodb init
