@@ -1,0 +1,33 @@
+{
+  "name": "project-w03-crud",
+  "version": "1.0.0",
+  "description": "CRUD operations practice for w03 cse341.",
+  "keywords": [
+    "CRUD"
+  ],
+  "homepage": "https://github.com/jcolmenarezgil/cse341-node#readme",
+  "bugs": {
+    "url": "https://github.com/jcolmenarezgil/cse341-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcolmenarezgil/cse341-node.git"
+  },
+  "author": "Jose David Colmenarez Gil",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "swagger-autogen": "^2.23.7"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongodb": "^7.0.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
