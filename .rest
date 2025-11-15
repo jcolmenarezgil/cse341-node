@@ -14,7 +14,6 @@ POST {{hostname}}/movies HTTP/1.1
 Content-Type: application/json
 
 {
-{
   "title": "Titanic",
   "original_title": "Titanic",
   "year": 1997,
@@ -39,6 +38,4 @@ Content-Type: application/json
   "rating": "PG-13",
   "synopsis": "The story centers on the forbidden romance between her, a seventeen-year-old aristocrat, and Jack Dawson, a poor artist, and their struggle to survive the ship's tragic sinking after it hits an iceberg.",
   "wiki_link": "https://en.wikipedia.org/wiki/Titanic_(1997_film)"
-}
-
 }
