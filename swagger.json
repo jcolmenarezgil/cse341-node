@@ -5,7 +5,7 @@
     "description": "Crud API for CSE341",
     "version": "1.0.0"
   },
-  "host": "https://cse341-node-6l61.onrender.com",
+  "host": "cse341-node-6l61.onrender.com",
   "basePath": "/",
   "schemes": [
     "https",
@@ -18,16 +18,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
           }
         }
       }
