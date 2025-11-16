@@ -16,6 +16,9 @@ const getAllMovies = async (req, res) => {
 };
 
 const getMovieById = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid movie id to find a movie');
+    }
     const movieId = new ObjectId(req.params.id);
     mongodb
         .getDatabase()
@@ -58,6 +61,9 @@ const createMovie = async (req, res) => {
 };
 
 const updateMovie = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid movie id to update a movie');
+    }
     const movieId = new ObjectId(req.params.id);
     const movie = {
         title: req.body.title,
@@ -85,6 +91,9 @@ const updateMovie = async (req, res) => {
 };
 
 const deleteMovie = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid movie id to delete a movie');
+    }
     const movieId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().collection('movies').deleteOne({ _id: movieId });
     if (response.deletedCount > 0) {
