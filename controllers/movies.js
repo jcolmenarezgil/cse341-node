@@ -2,35 +2,24 @@ const mongodb = require('../database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllMovies = async (req, res) => {
-    mongodb
-        .getDatabase()
-        .collection('movies')
-        .find()
-        .toArray((err, list) => {
-            if (err) {
-                res.status(400).json({ message: err });
-            }
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(movies);
-        });
+    const result = await mongodb.getDatabase().collection('movies').find();
+    result.toArray().then((movies) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(movies);
+    });
 };
 
 const getMovieById = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid movie id to find a movie');
+        return;
     }
     const movieId = new ObjectId(req.params.id);
-    mongodb
-        .getDatabase()
-        .collection('movies')
-        .find({ _id: movieId })
-        .toArray((err, list) => {
-            if (err) {
-                res.status(400).json({ message: err });
-            }
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(movies);
-        });
+    const result = await mongodb.getDatabase().collection('movies').find({ _id: movieId });
+    result.toArray().then((movies) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(movies[0]);
+    });
 };
 
 
@@ -56,6 +45,7 @@ const createMovie = async (req, res) => {
 const updateMovie = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid movie id to update a movie');
+        return;
     }
     const movieId = new ObjectId(req.params.id);
     const movie = {
@@ -79,6 +69,7 @@ const updateMovie = async (req, res) => {
 const deleteMovie = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid movie id to delete a movie');
+        return;
     }
     const movieId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().collection('movies').deleteOne({ _id: movieId });
