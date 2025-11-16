@@ -42,3 +42,48 @@ Content-Type: application/json
 ### Delete a movie
 DELETE {{hostname}}/movies/6919ac5c8ce5b246c3c0757c HTTP/1.1
 Accept: application/json
+
+
+###
+### BOOKS
+###
+
+### Get all books
+GET {{hostname}}/books
+Accept: application/json
+
+### Get a book by id
+GET {{hostname}}/books/6919ac5c8ce5b246c3c0757d
+Accept: application/json
+
+### Create a book
+POST {{hostname}}/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Gone with the Wind",
+  "author": "author blank",
+  "publication_year": 1936,
+  "genre": "genre blank",
+  "isbn": "978-0684830681",
+  "publisher": "publisher blank",
+  "pages": 123
+}
+
+### Update a book
+PUT {{hostname}}/books/6919ac5c8ce5b246c3c0757d HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Gone with the Wind",
+  "author": "Margaret Mitchell",
+  "publication_year": 1936,
+  "genre": "Historical Fiction",
+  "isbn": "978-0684830681",
+  "publisher": "Macmillan Publishers",
+  "pages": 1037
+}
+
+### Delete a book
+DELETE {{hostname}}/books/6919ac5c8ce5b246c3c0757d HTTP/1.1
+Accept: application/json
