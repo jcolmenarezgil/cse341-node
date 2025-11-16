@@ -15,44 +15,30 @@ Content-Type: application/json
 
 {
   "title": "Titanic",
-  "original_title": "Titanic",
   "year": 1997,
   "director": "James Cameron",
   "writers": "James Cameron",
-  "producers": "James Cameron, Jon Landau",
-  "cinematographer": "Russell Carpenter",
-  "editor": "Conrad Buff, James Cameron, Richard A. Harris",
-  "music_composer": "James Horner",
   "release_date": "1997-12-19",
   "running_time": "195 minutes",
   "budget": "$200 million",
-  "rating": "PG-13",
-  "synopsis": "The story centers on the forbidden romance between her, a seventeen-year-old aristocrat, and Jack Dawson, a poor artist, and their struggle to survive the ship's tragic sinking after it hits an iceberg.",
-  "wiki_link": "https://en.wikipedia.org/wiki/Titanic_(1997_film)"
+  "rating": "PG-13"
 }
 
 ### Update a movie
-PUT {{hostname}}/movies/6918fbaccbaf9b4d1f43ea30 HTTP/1.1
+PUT {{hostname}}/movies/6919ac5c8ce5b246c3c0757c HTTP/1.1
 Content-Type: application/json
 
   {
     "title": "Titanic Remastered 4K",
-    "original_title": "Titanic Remastered 4K",
     "year": "2023",
     "director": "James Cameron",
     "writers": "James Cameron",
-    "producers": "James Cameron, Jon Landau",
-    "cinematographer": "Russell Carpenter",
-    "editor": "Julian Clarke, Connie Fields",
-    "music_composer": "James Horner",
     "release_date": "2023-02-10",
     "running_time": "195 minutes",
     "budget": "$200 million",
     "rating": "PG-13",
-    "synopsis": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
-    "wiki_link": "https://en.wikipedia.org/wiki/Titanic_(1997_film)"
   }
 
 ### Delete a movie
-DELETE {{hostname}}/movies/6918fbaccbaf9b4d1f43ea30 HTTP/1.1
+DELETE {{hostname}}/movies/6919ac5c8ce5b246c3c0757c HTTP/1.1
 Accept: application/json
