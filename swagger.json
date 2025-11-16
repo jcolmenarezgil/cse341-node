@@ -5,7 +5,7 @@
     "description": "Crud API for CSE341",
     "version": "1.0.0"
   },
-  "host": "cse341-node-6l61.onrender.com",
+  "host": "https://cse341-node-6l61.onrender.com",
   "basePath": "/",
   "schemes": [
     "https",
@@ -15,85 +15,19 @@
     "/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
-      },
-      "post": {
+      }
+    },
+    "/api-docs": {
+      "get": {
         "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "original_title": {
-                  "example": "any"
-                },
-                "year": {
-                  "example": "any"
-                },
-                "director": {
-                  "example": "any"
-                },
-                "writers": {
-                  "example": "any"
-                },
-                "producers": {
-                  "example": "any"
-                },
-                "cinematographer": {
-                  "example": "any"
-                },
-                "editor": {
-                  "example": "any"
-                },
-                "music_composer": {
-                  "example": "any"
-                },
-                "release_date": {
-                  "example": "any"
-                },
-                "running_time": {
-                  "example": "any"
-                },
-                "budget": {
-                  "example": "any"
-                },
-                "rating": {
-                  "example": "any"
-                },
-                "synopsis": {
-                  "example": "any"
-                },
-                "wiki_link": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "412": {
-            "description": "Precondition Failed"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -185,131 +119,6 @@
       }
     },
     "/movies/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "original_title": {
-                  "example": "any"
-                },
-                "year": {
-                  "example": "any"
-                },
-                "director": {
-                  "example": "any"
-                },
-                "writers": {
-                  "example": "any"
-                },
-                "producers": {
-                  "example": "any"
-                },
-                "cinematographer": {
-                  "example": "any"
-                },
-                "editor": {
-                  "example": "any"
-                },
-                "music_composer": {
-                  "example": "any"
-                },
-                "release_date": {
-                  "example": "any"
-                },
-                "running_time": {
-                  "example": "any"
-                },
-                "budget": {
-                  "example": "any"
-                },
-                "rating": {
-                  "example": "any"
-                },
-                "synopsis": {
-                  "example": "any"
-                },
-                "wiki_link": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "412": {
-            "description": "Precondition Failed"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/{id}": {
       "get": {
         "description": "",
         "produces": [
