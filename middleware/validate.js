@@ -12,9 +12,9 @@ const dataMovie = (req, res, next) => {
         editor: 'required|string',
         music_composer: 'required|string',
         release_date: 'required|string',
-        running_time: 'required|integer',
-        budget: 'required|integer',
-        rating: 'required|integer',
+        running_time: 'required|string',
+        budget: 'required|string',
+        rating: 'required|string',
         synopsis: 'required|string',
         wiki_link: 'required|string'
     };

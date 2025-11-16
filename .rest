@@ -18,19 +18,10 @@ Content-Type: application/json
   "original_title": "Titanic",
   "year": 1997,
   "director": "James Cameron",
-  "writers": [
-    "James Cameron"
-  ],
-  "producers": [
-    "James Cameron",
-    "Jon Landau"
-  ],
+  "writers": "James Cameron",
+  "producers": "James Cameron, Jon Landau",
   "cinematographer": "Russell Carpenter",
-  "editor": [
-    "Conrad Buff",
-    "James Cameron",
-    "Richard A. Harris"
-  ],
+  "editor": "Conrad Buff, James Cameron, Richard A. Harris",
   "music_composer": "James Horner",
   "release_date": "1997-12-19",
   "running_time": "195 minutes",
