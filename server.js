@@ -8,6 +8,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("./models/User");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +20,9 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URL,
+    }),
     cookie: {
       httpOnly: true,
       sameSite: "lax",
