@@ -18,7 +18,7 @@ const doc = {
       "This API allow us to get, create, update and delete Games, genrer, plataform and others",
   },
   host: host,
-  schemes: ["http", "https"],
+  schemes: process.env.NODE_ENV === "production" ? ["https"] : ["http"],
   securityDefinitions: {
     cookieAuth: {
       type: "apiKey",

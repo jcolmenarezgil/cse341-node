@@ -8,7 +8,6 @@
   "host": "games-vault-api-x81d.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "securityDefinitions": {
