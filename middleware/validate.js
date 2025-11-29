@@ -13,11 +13,11 @@ const dataMovie = (req, res, next) => {
     };
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
-            res.status(412).send({
-                success: false,
-                message: 'Validation failed',
-                data: err
-            });
+            const validationError = new Error('Validation failed: Los datos enviados no cumplen los requisitos.');
+            validationError.status = 400;
+            validationError.details = err;
+
+            return next(validationError);
         } else {
             next();
         }
@@ -36,11 +36,10 @@ const dataBook = (req, res, next) => {
     };
     validator(req.body, validationRule, {}, (err, status) => {
         if (!status) {
-            res.status(412).send({
-                success: false,
-                message: 'Validation failed',
-                data: err
-            });
+            const validationError = new Error('Validation failed: unsuccessful data');
+            validationError.status = 400;
+            validationError.details = err;
+            return next(validationError);
         } else {
             next();
         }

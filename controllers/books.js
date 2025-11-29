@@ -22,44 +22,72 @@ const getBookById = async (req, res) => {
     });
 };
 
-const createBook = async (req, res) => {
-    const book = {
-        title: req.body.title,
-        author: req.body.author,
-        publication_year: req.body.publication_year,
-        genre: req.body.genre,
-        isbn: req.body.isbn,
-        publisher: req.body.publisher,
-        pages: req.body.pages
-    };
-    const response = await mongodb.getDatabase().collection('books').insertOne(book);
-    if (response.acknowledged) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Some error occurred while creating the book.');
+const createBook = async (req, res, next) => {
+    try {
+        const book = {
+            title: req.body.title,
+            author: req.body.author,
+            publication_year: req.body.publication_year,
+            genre: req.body.genre,
+            isbn: req.body.isbn,
+            publisher: req.body.publisher,
+            pages: req.body.pages
+        };
+
+        const response = await mongodb.getDatabase().collection('books').insertOne(book);
+
+        if (response.acknowledged) {
+            res.status(201).json(response.insertedId);
+        } else {
+            const error = new Error(response.error || 'Failure to confirm book creation.');
+            error.status = 500;
+            next(error);
+        }
+
+    } catch (error) {
+        console.error('Error creating a book:', error.message);
+        error.status = 500;
+        next(error);
     }
 };
 
-const updateBook = async (req, res) => {
+const updateBook = async (req, res, next) => {
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid book id to update a book');
-        return;
+        const error = new Error('You MUST use a valid book ID to update.');
+        error.status = 400;
+        return next(error);
     }
-    const bookId = new ObjectId(req.params.id);
-    const book = {
-        title: req.body.title,
-        author: req.body.author,
-        publication_year: req.body.publication_year,
-        genre: req.body.genre,
-        isbn: req.body.isbn,
-        publisher: req.body.publisher,
-        pages: req.body.pages
-    };
-    const response = await mongodb.getDatabase().collection('books').replaceOne({ _id: bookId }, book);
-    if (response.modifiedCount > 0) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Some error occurred while updating the book.');
+
+    try {
+        const bookId = new ObjectId(req.params.id);
+        const book = {
+            title: req.body.title,
+            author: req.body.author,
+            publication_year: req.body.publication_year,
+            genre: req.body.genre,
+            isbn: req.body.isbn,
+            publisher: req.body.publisher,
+            pages: req.body.pages
+        };
+
+        // BD updating
+        const response = await mongodb.getDatabase().collection('books').replaceOne({ _id: bookId }, book);
+
+        if (response.modifiedCount > 0) {
+            res.status(204).send();
+        } else {
+            if (response.error) {
+                const error = new Error(response.error || 'Failed to confirm book update.');
+                error.status = 500;
+                return next(error);
+            }
+            return res.status(404).json({ mensaje: 'The book with the provided ID was not found for update.' });
+        }
+
+    } catch (error) {
+        console.error('updateBook error:', error.message);
+        error.status = 500;
+        next(error);
     }
 };
 
