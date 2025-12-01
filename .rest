@@ -21,7 +21,8 @@ Content-Type: application/json
   "release_date": "1997-12-19",
   "running_time": "195 minutes",
   "budget": "$200 million",
-  "rating": "PG-13"
+  "rating": "PG-13",
+  "id": "6919ac5c8ce5b246c3c0757c"
 }
 
 ### Update a movie
@@ -67,7 +68,8 @@ Content-Type: application/json
   "genre": "genre blank",
   "isbn": "978-0684830681",
   "publisher": "publisher blank",
-  "pages": 123
+  "pages": 123, 
+  "id": "6919ac5c8ce5b246c3c0757d"
 }
 
 ### Update a book
