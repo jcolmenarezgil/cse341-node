@@ -10,10 +10,6 @@ const getAllBooks = async (req, res) => {
 };
 
 const getBookById = async (req, res) => {
-    if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid book id to find a book');
-        return;
-    }
     const bookId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().collection('books').find({ _id: bookId });
     result.toArray().then((books) => {
@@ -52,12 +48,6 @@ const createBook = async (req, res, next) => {
 };
 
 const updateBook = async (req, res, next) => {
-    if (!ObjectId.isValid(req.params.id)) {
-        const error = new Error('You MUST use a valid book ID to update.');
-        error.status = 400;
-        return next(error);
-    }
-
     try {
         const bookId = new ObjectId(req.params.id);
         const book = {
@@ -92,10 +82,6 @@ const updateBook = async (req, res, next) => {
 };
 
 const deleteBook = async (req, res) => {
-    if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid book id to delete a book');
-        return;
-    }
     const bookId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().collection('books').deleteOne({ _id: bookId });
     if (response.deletedCount > 0) {

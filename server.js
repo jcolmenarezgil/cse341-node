@@ -80,7 +80,9 @@ app.use((err, req, res, next) => {
 
     res.status(statusCode).json({
         message: statusCode === 500
-            ? 'Internal Server Error'
-            : err.message || 'Failured to process request'
+            ? 'An internal server error occurred.'
+            : err.message || 'Failed to process request.',
+        // If it's a validation error from middleware, include the details
+        ...(err.details && { details: err.details })
     });
 });

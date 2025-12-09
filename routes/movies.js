@@ -1,18 +1,23 @@
+// routes/movies.js
 const express = require('express');
 const router = express.Router();
 
 const moviesController = require('../controllers/movies');
 const { isAuthenticated } = require('../middleware/authenticate');
-const validation = require('../middleware/validate');
+const { dataMovie } = require('../middleware/validate');
+const validateId = require('../middleware/validateId');
 
+// GET
 router.get('/', moviesController.getAllMovies);
+router.get('/:id', validateId, moviesController.getMovieById);
 
-router.get('/:id', moviesController.getMovieById);
+// POST
+router.post('/', isAuthenticated, dataMovie, moviesController.createMovie);
 
-router.post('/', isAuthenticated, validation.dataMovie, moviesController.createMovie);
+// PUT
+router.put('/:id', isAuthenticated, validateId, dataMovie, moviesController.updateMovie);
 
-router.put('/:id', isAuthenticated, validation.dataMovie, moviesController.updateMovie);
-
-router.delete('/:id', isAuthenticated, moviesController.deleteMovie);
+// DELETE
+router.delete('/:id', isAuthenticated, validateId, moviesController.deleteMovie);
 
 module.exports = router;
