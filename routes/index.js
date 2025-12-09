@@ -25,6 +25,14 @@ router.get('/logout', function (req, res, next) {
     });
 });
 
+router.get('/github/callback', passport.authenticate('github', {
+    failureRedirect: '/api-docs', session: false
+}),
+    (req, res) => {
+        req.session.user = req.user;
+        res.redirect('/');
+    });
+
 // Middleware 404
 router.use((req, res, next) => {
     try {
