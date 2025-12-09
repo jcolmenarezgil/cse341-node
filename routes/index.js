@@ -5,7 +5,12 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
     try {
-        res.send('Welcome User');
+        // Check if a user is logged in via the session and display their name
+        if (req.session.user) {
+            res.send(`Welcome, ${req.session.user.displayName}! You are logged in.`);
+        } else {
+            res.send('Welcome! Please log in.');
+        }
     } catch (error) {
         console.error('Error in / route:', error);
         res.status(500).json({ message: 'Internal Server Error' });
@@ -26,7 +31,7 @@ router.get('/logout', function (req, res, next) {
 });
 
 router.get('/github/callback', passport.authenticate('github', {
-    failureRedirect: '/api-docs', session: false
+    failureRedirect: '/api-docs' // session: true is the default, so we remove the false setting
 }),
     (req, res) => {
         req.session.user = req.user;
